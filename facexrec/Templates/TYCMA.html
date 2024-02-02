@@ -1,0 +1,123 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'L1.css'%}">
+    <link rel="icon" href="{% static 'computer.png' %}">
+    <style>
+        form{
+            width: 450px;
+            margin: auto;
+            background-color: rgba(255, 255, 255, 0.795);
+        }
+        .btn1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(90, 90, 224);
+    margin: auto;
+    width: 250px;
+    margin-bottom: 1.5rem;
+    font-family: "Poppins" , sans-serif;
+    font-size: 22px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    box-shadow: 5px  5px rgba(0, 0, 0, 0.6);
+    transition: 0.3s;
+}
+.btn1:hover{
+    transform: scale(2);
+    color: white;
+}
+    </style>
+    <title>TYCM A</title>
+</head>
+<body>
+    <main>
+        <div class="big-wrapper">
+            <header>
+                <div class="container">
+                    <div class="logo">
+                        <img src="{% static 'letter-c-1641882.png' %}" alt="">
+                        <h3>FaceX-Rec</h3>
+                    </div>
+                    <div class="links">
+                        <ul>
+                            <li><a href="/first">Home</a></li>
+                            <li><a href="/studenttable">Show Students</a></li>
+                            <li><a href="/reportissue">Report Issue</a></li>
+                            <li><a href="/downloadAttendance">Download Attendance</a></li>
+                            <li><a href="/Logout" class="btn">Logout</a></li>
+                        </ul>
+                    </div>
+
+
+                    <!-- THis is the overlay sections -->
+                    <div class="overlay"></div>
+                    <div class="ham-menu">
+                        <div class="three-bars"></div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Contains the middleware -->
+            <form method="POST" action="{% url 'mark' %}">
+                {% csrf_token %}
+                
+                  <legend>Select the following</legend>
+                  <div class="mb-3">
+                    <label for="disabledSelect" class="form-label">Select Name of the Lecturer</label>
+                    <select id="disabledSelect" class="form-select">
+                      <option>Sheetal Sapate Ma'am</option>
+                      <option>Amol Suryavanshi Sir </option>
+                      <option>VidyaBhushan Updhya Sir</option>
+                      <option>Saira Mujawar Ma'am</option>
+
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label for="disabledSelect" class="form-label">Select subject</label>
+                    <select id="disabledSelect" class="form-select">
+                      <option>Operating System</option>
+                      <option>Programming with Python</option>
+                      <option>Hyper-text Preprocessor</option>
+                      <option>Cap-stone Project Execution </option>
+                      <option>Mobile application devlopment</option>
+                      
+                    </select>
+                  </div>
+
+                    <div class="mb-3">
+                    <label for="disabledSelect" class="form-label">Time Slot</label>
+                    <select id="disabledSelect" class="form-select">
+                      <option> 7:30 to 8:30</option>
+                      <option>8:30 to 9:30</option>
+                      <option>9:30 to 10:30</option>
+                      <option>10:30 to 11:30 </option>
+                      <option>12:15 to 1:15 </option>
+                      <option>1:15 to 2:15 </option>
+                      
+                      
+                    </select>
+                  </div>
+                  
+                  <button class="btn1" type="submit">Take Attendance</button>
+               
+              </form>
+            
+<!-- Auto typing at the bottom -->
+            <div class="bottom-area">
+                <div class="container">
+
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="{%static 'l1.js'%}"></script>
+</body>
+</html>

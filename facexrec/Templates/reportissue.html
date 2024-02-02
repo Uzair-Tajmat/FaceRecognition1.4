@@ -1,0 +1,132 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'L1.css'%}">
+    <link rel="icon" href="{% static 'letter-c-1641882.png' %}">
+
+    
+<style>
+   
+ .form1{
+    display: block;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    background-color: white;
+    padding: 10px;
+    border-radius: 7px;
+    border: solid black 1.5px;
+ }
+ .submit-btn button{
+    width: 170px; 
+    height: 30px; 
+    margin-top: 10px;
+    font-size: larger;
+    
+    background-color: rgb(119, 68, 231);
+    border-radius: 10px;
+    border: none;
+    box-shadow: 5px  5px rgba(0, 0, 0, 0.6);
+    margin: 14px 0px 12px 0px ;
+     
+ }
+ .submit-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: large;
+    
+}
+.submit-btn button{
+    transition: 0.3s ease-in-out;
+}
+.submit-btn:hover button{
+    transform: scale(1.3) ; 
+    background-color: aliceblue
+    
+    
+}
+.lbl::after{
+    content: "*";
+    color: rgb(177, 30, 30);
+}
+</style>
+    <title>Report Issue</title>
+</head>
+<body>
+    <main>
+        <div class="big-wrapper">
+            <header>
+                <div class="container">
+                    <div class="logo">
+                        <img src="{% static 'letter-c-1641882.png' %}" alt="">
+                        <h3>FaceX-Rec</h3>
+                    </div>
+                    <div class="links">
+                        <ul>
+                            <li><a href="/first">Home</a></li>
+                            <li><a href="/studenttable">Show Students</a></li>
+                            <li><a href="/reportissue">Report Issue</a></li>
+                            <li><a href="/Logout" class="btn">Logout</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- THis is the overlay sections -->
+                    <div class="overlay"></div>
+                    <div class="ham-menu">
+                        <div class="three-bars"></div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Form -->
+<div class="form1">
+ <form method="POST" action="{% url 'reportissue' %}">
+    {% csrf_token %}
+    <div class="heading">
+        <h3 style="text-align: center; border-bottom: solid white; margin-bottom: 13px; text-decoration: none; color: white;">Report a Issue</h3>
+    </div>
+    <div class="lbl" >
+        <label style="font-size: larger;">Issue Name</label>
+    </div>
+    
+    <input type="text" placeholder="Enter Issue Name" required="*"  style="font-size: larger; padding-left: 3px; margin-bottom: 7px; border-radius: 7px;" name="name" id="name">
+    
+    <div class="lbl">
+        <label style="font-size: larger;">Email</label>
+    </div>
+    <input type="email" placeholder="Enter Your Email" style="font-size: larger; padding-left: 3px; margin-bottom: 7px; border-radius: 7px;" name="email" id="email">
+    
+    <div class="lbl">
+        <label style="font-size: larger;">Description</label>
+    </div>
+    <input type="text" placeholder="Enter the Discription" style="font-size: larger; padding-left: 3px; margin-bottom: 7px; border-radius: 7px; height:100px" name="discription" id="discription">
+    
+    <div class="lbl">
+        <label style="font-size: larger;">Upload ScreenShot</label>
+    </div>
+    <div class="upload" style="margin-top: 7px;">
+        <input type="file" style="font-size: medium; ">
+    </div>
+    <div class="submit-btn">
+    <button type="submit">Submit</button>
+    </div>
+
+ </form>
+</div>            
+
+<!-- Auto typing at the bottom -->
+            <div class="bottom-area">
+                <div class="container">
+
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="{% static 'l1.js' %}"></script>
+</body>
+</html>

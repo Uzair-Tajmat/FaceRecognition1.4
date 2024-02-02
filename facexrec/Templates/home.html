@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'L1.css' %}">
+    <link rel="icon" href="{% static 'letter-c-1641882.png' %}">
+    <title>Home</title>
+</head>
+<body>
+    <main>
+        <div class="big-wrapper">
+            <header>
+                <div class="container">
+                    <div class="logo">
+                        <img src="{% static 'letter-c-1641882.png' %}" alt="">
+                        <h3>FaceX-Rec</h3>
+                    </div>
+                    <div class="links">
+                        <ul>
+                            <li><a href="/imageregister">Register</a></li>
+                            <li><a href="home/login">Login</a></li>
+                            <li><a href="/aboutus">About Us</a></li>
+                            
+                        </ul>
+                    </div>
+
+                    <!-- THis is the overlay sections -->
+                    <div class="overlay"></div>
+                    <div class="ham-menu">
+                        <div class="three-bars"></div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Contains the middleware -->
+
+            <div class="showcase-area">
+                <div class="container">
+                    
+                    <div class="left">
+                        <div class="big-title">
+                            <!-- Add the heading or the moto of the company -->
+                            <h1>Future is here</h1>
+                        </div>
+                        <!-- Add a small Paragraph about the product -->
+
+                        <p class="text">
+                            Welcome to FaceX-Rec! We are a cutting-edge technology company dedicated to providing businesses and educational institutions with the latest advancements in attendance tracking.
+                        </p>
+                      
+                    </div>
+                    <div class="right">
+                        <img src="static/v2.1.jpg" alt="" class="face">
+    
+                    </div>
+                  
+                            
+                </div>
+            </div>
+            <!-- Auto typing at the bottom -->
+            <div class="bottom-area">
+                
+                <div class="container">
+ 
+                </div>
+                
+            </div>
+        </div>
+    </main>
+    <script src="{% static 'l1.js' %}"></script>
+    
+</body>
+</html>

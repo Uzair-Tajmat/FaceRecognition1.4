@@ -1,0 +1,278 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&display=swap');
+   *{
+   
+       margin: 0;
+       padding: 0;
+       box-sizing: border-box;
+       font-family: "Poppins", sans-serif;
+       
+       
+   }
+   nav{
+       position: absolute;
+       margin-top: 220px;
+       left: 50%;
+       transform: translate(-50%, -50%);
+       background-color: rgb(0, 0, 0);
+       width: 350px;
+       line-height: 40px;
+       padding: 8px 25px;
+       border-radius: 5px;
+      
+   }
+   nav label{
+       color: white;
+       font-size: 22px;
+       font-weight: 500;
+       display: block;
+       cursor: pointer;
+   }
+   .button span{
+       float: right;
+       line-height: 35px;
+
+   }
+   nav ul{
+       position: absolute;
+       background: linear-gradient(45deg, rgb(0, 0, 251),rgb(7, 85, 180));
+       list-style: none;
+       top: 75px;
+       left: 0;
+       width: 100%;
+       border-radius: 5px;
+       display: none;
+       
+       
+   }
+
+   [id^=btn]:checked+ul{
+       display: block;
+   }
+
+nav .menu::before{ 
+   position: absolute;
+   content: '';
+   height: 20px;
+   width: 20px;
+   background: rgb(0, 0, 0);
+   right: 20px;
+   top: -10px;
+   transform: rotate(45deg);
+   z-index: -1;
+
+
+   }
+nav ul li{
+   line-height: 40px;
+   padding: 22px  22px;
+   cursor: pointer;
+   border-bottom: 3px solid rgba(229, 226, 226, 0.2);
+}
+
+nav ul li label{
+   font-size: 18px;
+
+}
+
+   nav ul  li a{
+       color: rgb(243, 243, 243);
+       text-decoration: none;
+       font-size: 18px;
+       display: block;
+   }
+   nav ul ul{
+       position: static;
+   }
+
+   nav ul ul li{
+       line-height: 30px;
+       padding-left: 30px;
+       /*TO give bottom line to the fy sy ty*/
+       border-bottom: none;
+   }
+   nav ul ul li a{
+       color: rgb(0, 0, 0);
+       font-size: 17px;
+   }
+   nav ul  li a:hover,
+   nav ul  li label:hover
+   {
+      color: blueviolet; 
+   }
+   nav ul li span{
+       font-size: 20px;
+       float: right;
+       margin-top: 10px;
+       padding: 0 10px;
+   }
+
+   input{
+       display: none;
+   }
+ 
+   .menu{
+       height: 350px;
+       overflow: auto;
+   }
+
+   ::-webkit-scrollbar-thumb{
+    background: linear-gradient(45deg,rgb(7, 7, 7),rgb(238, 238, 238));
+   }
+
+   ::-webkit-scrollbar{
+    width: 5px;
+    border: 3px 3px 3px 3px;
+   }
+   .img{
+    width: 40px;
+    height: 40px;
+    
+   
+   
+   }
+
+   
+       </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'P1.css' %}">
+    <link rel="icon" href="{% static 'letter-c-1641882.png' %}">
+
+    <script>
+        
+    </script>
+    <title>Welcome</title>
+</head>
+<body>
+    <main>
+        <div class="big-wrapper">
+            <header>
+                <div class="container">
+                    <div class="logo">
+                        <img src="{% static 'letter-c-1641882.png' %}" alt="">
+                        <h3>FaceX-Rec</h3>
+                    </div>
+                    <div class="links">
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="/reportissue">Report Issue</a></li>
+                            <li><a href="/Logout">Logout</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- THis is the overlay sections -->
+                    <div class="overlay"></div>
+                    <div class="ham-menu">
+                        <div class="three-bars"></div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Contains the middleware -->
+
+            <nav>
+                <label for="btn-0" class="button" style="background-color:"white";">Select the Department <img src="{% static 'dparrow.png' %}" alt=" " class="img">
+                    <span class="fas fa-caret-down"></span>
+                </label>
+                <input type="checkbox" id="btn-0">
+                <ul class="menu">
+                    <li>
+                        <label for="btn-1" class="first"> <img src="{% static 'computer1.png' %}" class="img"> Computer Department<img src="{% static 'dparrow.png' %}" alt=" " class="img">
+                            <span class="fas fa-caret-down"></span>
+                        </label>
+                        <input type="checkbox" id="btn-1">
+                        <ul>
+                           
+                            <label for="btn-6" class="button">First Year
+                                <span class="fas fa-caret-down"></span>
+                            </label>
+                            <input type="checkbox" id="btn-6">
+                            <ul>
+                                <li><a href="">FYCM-A</a></li>
+                                <li><a href="">FYCM-B</a></li>
+                            </ul>
+        
+                            <label for="btn-7" class="button">Second Year
+                                <span class="fas fa-caret-down"></span>
+                            </label>
+                            <input type="checkbox" id="btn-7">
+                            <ul>
+                                <li><a href="">SYCM-A</a></li>
+                                <li><a href="">SYCM-B</a></li>
+                            </ul>
+        
+                            <label for="btn-8" class="button">Third Year
+                                <span class="fas fa-caret-down"></span>
+                            </label>
+                            <input type="checkbox" id="btn-8">
+                            <ul>
+                                <li><a href="/TYCMA/">TYCM-A</a></li>
+                                <li><a href="">TYCM-B</a></li>
+                            </ul>
+        
+                        </ul>
+                    </li>
+                    <li>
+                        <label for="btn-2" class="first"> <img src="{% static 'electric.png' %}" class="img"> Electronic Department
+                             <span class="fas fa-caret-down"></span>
+                        </label>
+                        <input type="checkbox" id="btn-2">
+                        <ul>
+                            <li><a href="#">First Year</a></li>
+                            <li><a href="#">Second Year</a></li>
+                            <li><a href="#">Third Year</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <label for="btn-3" class="first"> <img src="{% static 'mechanical.png' %}" class="img"> Mechanical Department
+                             <span class="fas fa-caret-down"></span>
+                        </label>
+                        <input type="checkbox" id="btn-3">
+                        <ul>
+                            <li><a href="#">First Year</a></li>
+                            <li><a href="#">Second Year</a></li>
+                            <li><a href="#">Third Year</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <label for="btn-4" class="first"> <img src="{% static 'civil.png' %}" class="img"> Civil Department
+                             <span class="fas fa-caret-down"></span>
+                        </label>
+                        <input type="checkbox" id="btn-4">
+                        <ul>
+                            <li><a href="#">First Year</a></li>
+                            <li><a href="#">Second Year</a></li>
+                            <li><a href="#">Third Year</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <label for="btn-5" class="first"> <img src="{% static 'chemical.png' %}" class="img"> Chemical Department
+                             <span class="fas fa-caret-down"></span>
+                        </label>
+                        <input type="checkbox" id="btn-5">
+                        <ul>
+                            <li><a href="#">First Year</a></li>
+                            <li><a href="#">Second Year</a></li>
+                            <li><a href="#">Third Year</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+
+<!-- Auto typing at the bottom -->
+            <div class="bottom-area">
+                <div class="container">
+
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="{% static 'l1.js' %}"></script>
+</body>
+</html>

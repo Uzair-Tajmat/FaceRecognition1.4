@@ -1,0 +1,121 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'L1.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="{% static 'letter-c-1641882.png' %}">
+
+    <style>
+        form{
+            width: 450px;
+            margin: auto;
+            background-color: rgba(255, 255, 255, 0.795);
+          
+        }
+        .btn1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    background: rgb(90, 90, 224);
+    margin: auto;
+    width: 250px;
+    margin-bottom: 1.5rem;
+    font-family: "Poppins" , sans-serif;
+    font-size: 22px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    box-shadow: 5px  5px rgba(0, 0, 0, 0.6);
+    transition: 0.3s;
+}
+.btn1:hover{
+    transform: scale(2);
+    color: white;
+}
+    </style>
+    <title>Add Student</title>
+</head>
+<body>
+    <main>
+        <div class="big-wrapper">
+            <header>
+                <div class="container">
+                    <div class="logo">
+                        <img src="{% static 'letter-c-1641882.png' %}" alt="">
+                        <h3>FaceX-Rec</h3>
+                    </div>
+                    <div class="links">
+                        <ul>
+                            <li><a href="/first">Home</a></li>
+                            <li><a href="/studenttable">Show Students</a></li>
+                            <li><a href="#">Report Issue</a></li>
+                            <li><a href="#">Download Attendance</a></li>
+                            <li><a href="/Logout" class="btn">Logout</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- THis is the overlay sections -->
+                    <div class="overlay"></div>
+                    <div class="ham-menu">
+                        <div class="three-bars"></div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Contains the middleware -->
+            <form method="POST" action="{% url 'addAttendance' %}" style="margin-right:630px;">
+                {% csrf_token %}
+                
+                <body>
+                    <div>
+                        <div class="container card p-3 mt-5 border-dark" style="width: 200%;">
+                            <h3 class="card p-2 text-center mb-3">Add Attendance</h3>
+                            <div>
+                            <input type="text" placeholder="Search.." name="search">
+                            <button type="submit"><i class="fa fa-search"></i></button></div>
+                            <table class="table table-bordered " align="center">
+                                <thead class="table-secondary">
+                                    <tr>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
+                                        <th>Enroll</th>
+                                        <th>Roll No:</th>
+                                        <th>Add Attendance </th>
+                                    </tr>
+                                </thead>
+                
+                                {% for data in addAttendance%}
+                                <tr>
+                                    <td>{{ data.first_name}}</td>
+                                    <td>{{ data.last_name}}</td>
+                                    <td>{{ data.enroll}}</td>
+                                    <td>{{ data.roll_no}}</td>
+                                    <td><input type="checkbox"></td>
+                
+                                </tr>
+                                {% endfor %}
+                            </table>
+                
+                          </div>
+                        </div>
+                  <button class="btn1" type="submit" style="margin-left:320px; margin-top:22px;">Add Attendance</button>
+               
+              </form>
+            
+<!-- Auto typing at the bottom -->
+            <div class="bottom-area">
+                <div class="container">
+
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="{%static 'l1.js'%}"></script>
+</body>
+</html>
